@@ -91,6 +91,8 @@
 * In GitHub Actions, you can use the group workflow command to create expandable groups in the workflow logs.
 * To trigger a workflow when a comment is created on an issue within a GitHub repository, you should use the issue_comment event.
 * Workflow commands prefixed with the :: can be used to customize the runner environment, such as setting environment variables or modifying the working directory.
+* Outputs are Unicode strings, and can be a maximum of 1 MB. The total of all outputs in a workflow run can be a maximum of 50 MB.
 * The GITHUB_ACTIONS variable is always set to true when GitHub Actions is running the workflow.
 * To enable step debug logging, set the following secret or variable in the repository that contains the workflow: ACTIONS_STEP_DEBUG to true. If both the secret and variable are set, the value of the secret takes precedence over the variable.
 * In GitHub Actions, runner labels can be used to categorize different types of runners provisioned in an organization for various workloads.
+* GitHub Actions does not dictate or even propose a naming convention for workflow files. 
