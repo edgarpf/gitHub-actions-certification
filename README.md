@@ -95,4 +95,29 @@
 * The GITHUB_ACTIONS variable is always set to true when GitHub Actions is running the workflow.
 * To enable step debug logging, set the following secret or variable in the repository that contains the workflow: ACTIONS_STEP_DEBUG to true. If both the secret and variable are set, the value of the secret takes precedence over the variable.
 * In GitHub Actions, runner labels can be used to categorize different types of runners provisioned in an organization for various workloads.
-* GitHub Actions does not dictate or even propose a naming convention for workflow files. 
+* GitHub Actions does not dictate or even propose a naming convention for workflow files.
+* read, write, none provide fine-grained permissions for individual actions. {} disables permissions for all of the available scopes. write-all defines write access for all of the available scopes.
+* The status "Running" does not exist. The status that indicates a running workflow is "In Progress".
+* You can add self-hosted runners at various levels in the management hierarchy:
+  * Repository-level runners are dedicated to a single repository.
+  * Organization-level runners can process jobs for multiple repositories in an organization.
+  * Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
+* The github.run_number property is a unique number for each run of a particular workflow in a repository. This number begins at 1 for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run.
+* A reusable workflow can be used by another workflow if any of the following is true:
+  * Both workflows are in the same repository.
+  * The called workflow is stored in a public repository, and your organization allows you to use public reusable workflows.
+  * The called workflow is stored in a private repository and the settings for that repository allow it to be accessed.
+* You can use GitHub Actions Importer to plan and automatically migrate your CI/CD pipelines to GitHub Actions from Azure DevOps, CircleCI, GitLab, Jenkins, and Travis CI.
+* All actions require a metadata file. The metadata filename must be either action.yml or action.yaml
+* When an action fails, all concurrent actions are canceled and future actions are skipped.
+* When you plan to publish your action to GitHub Marketplace, you'll need to ensure that the repository only includes the metadata file, code, and files necessary for the action.
+* You can use the CODEOWNERS feature to control how changes are made to your workflow files.
+* You can access the artifacts produced by a completed workflow run from the GitHub UI by using the "Artifacts" section in the GitHub Actions UI. The UI does not offer an "Artifacts" tab.
+* You can use pre-entrypoint: to run a prerequisite setup script.
+* Workflow runs can restore caches created in either the current branch or the default branch (usually main). If a workflow run is triggered for a pull request, it can also restore caches created in the base branch, including base branches of forked repositories.
+* The branding section in the action.yml file is used to provide branding information for the custom action, including icons and colors.
+* Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow.
+* You can download the detailed log output of a specific job within a GitHub Actions workflow run from the GitHub UI.
+* There's no direct "pause" feature for workflows.
+* The name in the action's metadata file must be unique.
+* To enable step debug logging, set the following secret or variable in the repository that contains the workflow: ACTIONS_STEP_DEBUG to true. If both the secret and variable are set, the value of the secret takes precedence over the variable.
