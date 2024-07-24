@@ -120,4 +120,3 @@
 * You can download the detailed log output of a specific job within a GitHub Actions workflow run from the GitHub UI.
 * There's no direct "pause" feature for workflows.
 * The name in the action's metadata file must be unique.
-* To enable step debug logging, set the following secret or variable in the repository that contains the workflow: ACTIONS_STEP_DEBUG to true. If both the secret and variable are set, the value of the secret takes precedence over the variable.
